@@ -56,7 +56,7 @@ app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 
 
-// if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(path.resolve(), 'client', 'build')));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(path.resolve(), 'client', 'build', 'index.html'), function (err) {
@@ -66,7 +66,7 @@ app.use("/api/likes", likeRoutes);
       }
     });
   })
-// }
+}
 
 const PORT = process.env.PORT || 8800;
 app.listen(PORT, () => {
